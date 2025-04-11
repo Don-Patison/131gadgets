@@ -51,53 +51,66 @@
         </nav>
     Официальный сайт команды 131 GADGETS
     <script>
-        // Ждём, пока загрузится вся страница
         document.addEventListener('DOMContentLoaded', function() {
-            
-            // Находим бургер-кнопку и меню
             const burger = document.getElementById('burger');
             const navLinks = document.getElementById('navLinks');
-            
-            // Открытие/закрытие меню по клику на бургер
-            burger.addEventListener('click', function() {
-                // Переключаем класс 'active' у бургера (анимация полосок)
-                burger.classList.toggle('active');
-                // Переключаем класс 'active' у меню (показываем/скрываем)
-                navLinks.classList.toggle('active');
-            });
-            
-            // Работа выпадающих подменю на мобильных
             const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-            
+            let currentOpenDropdown = null; // Запоминает открытое подменю
+    
+            // Открытие/закрытие основного меню
+            burger.addEventListener('click', function() {
+                burger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+                if (!navLinks.classList.contains('active')) {
+                    closeAllDropdowns(); // Закрыть подменю при закрытии меню
+                }
+            });
+    
+            // Клик по пункту с подменю
             dropdownToggles.forEach(function(toggle) {
                 toggle.addEventListener('click', function(e) {
-                    // Если экран мобильный (меню в вертикальном режиме)
                     if (window.innerWidth <= 768) {
-                        // Отменяем переход по ссылке
                         e.preventDefault();
-                        // Находим родительский элемент (li.nav-item)
-                        const parentItem = this.parentElement;
-                        // Находим выпадающее меню внутри этого пункта
-                        const dropdown = parentItem.querySelector('.dropdown');
-                        // Переключаем класс 'active' у выпадающего меню
-                        dropdown.classList.toggle('active');
+                        const dropdown = this.parentElement.querySelector('.dropdown');
+                        
+                        // Закрыть текущее подменю, если кликнули по нему же
+                        if (dropdown === currentOpenDropdown) {
+                            dropdown.classList.remove('active');
+                            currentOpenDropdown = null;
+                        } 
+                        // Иначе закрыть старое и открыть новое
+                        else {
+                            if (currentOpenDropdown) {
+                                currentOpenDropdown.classList.remove('active');
+                            }
+                            dropdown.classList.add('active');
+                            currentOpenDropdown = dropdown;
+                        }
                     }
-                    // На десктопе меню работает через :hover (как в CSS)
                 });
             });
-            
-            // Закрытие меню при клике вне его области
+    
+            // Закрыть всё при клике вне меню
             document.addEventListener('click', function(e) {
-                // Если клик был не по бургеру и не по меню
                 if (!e.target.closest('.navbar')) {
-                    // Закрываем меню
                     burger.classList.remove('active');
                     navLinks.classList.remove('active');
-                    
-                    // Закрываем все выпадающие подменю
-                    document.querySelectorAll('.dropdown').forEach(function(dropdown) {
-                        dropdown.classList.remove('active');
-                    });
+                    closeAllDropdowns();
+                }
+            });
+    
+            // Функция для закрытия всех подменю
+            function closeAllDropdowns() {
+                document.querySelectorAll('.dropdown').forEach(function(dropdown) {
+                    dropdown.classList.remove('active');
+                });
+                currentOpenDropdown = null;
+            }
+    
+            // Сбросить подменю при ресайзе (на десктоп)
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    closeAllDropdowns();
                 }
             });
         });
