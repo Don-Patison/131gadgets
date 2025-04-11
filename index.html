@@ -5,10 +5,102 @@
         <title>131GADGETS | Официальный сайт</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        Официальный сайт команды 131 GADGETS
-        
+        <nav class="navbar">
+            <div class="logo-container">
+                <img src="logo.png" alt="Логотип" class="logo">
+                <span class="site-name">131 GADGETS</span>
+            </div>
+    
+            <!-- Бургер-меню (3 полоски) -->
+            <div class="burger" id="burger">
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+            </div>
+    
+            <ul class="nav-links" id="navLinks">
+                <li class="nav-item">
+                    <a href="#">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="dropdown-toggle">О нас ▼</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Команда</a></li>
+                        <li><a href="#">История</a></li>
+                        <li><a href="#">Достижения</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="dropdown-toggle">Услуги ▼</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Веб-разработка</a></li>
+                        <li><a href="#">Дизайн</a></li>
+                        <li><a href="#">Маркетинг</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#">Блог</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#">Контакты</a>
+                </li>
+            </ul>
+        </nav>
+    Официальный сайт команды 131 GADGETS
+    <script>
+        // Ждём, пока загрузится вся страница
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Находим бургер-кнопку и меню
+            const burger = document.getElementById('burger');
+            const navLinks = document.getElementById('navLinks');
+            
+            // Открытие/закрытие меню по клику на бургер
+            burger.addEventListener('click', function() {
+                // Переключаем класс 'active' у бургера (анимация полосок)
+                burger.classList.toggle('active');
+                // Переключаем класс 'active' у меню (показываем/скрываем)
+                navLinks.classList.toggle('active');
+            });
+            
+            // Работа выпадающих подменю на мобильных
+            const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+            
+            dropdownToggles.forEach(function(toggle) {
+                toggle.addEventListener('click', function(e) {
+                    // Если экран мобильный (меню в вертикальном режиме)
+                    if (window.innerWidth <= 768) {
+                        // Отменяем переход по ссылке
+                        e.preventDefault();
+                        // Находим родительский элемент (li.nav-item)
+                        const parentItem = this.parentElement;
+                        // Находим выпадающее меню внутри этого пункта
+                        const dropdown = parentItem.querySelector('.dropdown');
+                        // Переключаем класс 'active' у выпадающего меню
+                        dropdown.classList.toggle('active');
+                    }
+                    // На десктопе меню работает через :hover (как в CSS)
+                });
+            });
+            
+            // Закрытие меню при клике вне его области
+            document.addEventListener('click', function(e) {
+                // Если клик был не по бургеру и не по меню
+                if (!e.target.closest('.navbar')) {
+                    // Закрываем меню
+                    burger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    
+                    // Закрываем все выпадающие подменю
+                    document.querySelectorAll('.dropdown').forEach(function(dropdown) {
+                        dropdown.classList.remove('active');
+                    });
+                }
+            });
+        });
+    </script>
     </body>
 </html>
