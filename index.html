@@ -26,7 +26,7 @@
                     <a href="#">Главная</a>
                 </li>
                 <li class="nav-item">
-                    <a  class="dropdown-toggle">PLAY131 ▼</a>
+                    <a  class="dropdown-toggle">PLAY131 </a>
                     <ul class="dropdown">
                         <li><a href="#">Обзор</a></li>
                         <li><a href="#">Обновление OS131</a></li>
@@ -61,20 +61,21 @@
                     if (window.innerWidth <= 768) {
                         e.preventDefault();
                         const dropdown = this.parentElement.querySelector('.dropdown');
+                        const wasActive = dropdown.classList.contains('active');
                         
-                        // Закрыть текущее подменю, если кликнули по нему же
-                        if (dropdown === currentOpenDropdown) {
-                            dropdown.classList.remove('active');
-                            currentOpenDropdown = null;
-                        } 
-                        // Иначе закрыть старое и открыть новое
-                        else {
-                            if (currentOpenDropdown) {
-                                currentOpenDropdown.classList.remove('active');
-                            }
-                            dropdown.classList.add('active');
-                            currentOpenDropdown = dropdown;
-                        }
+                        // Закрываем все подменю
+                        document.querySelectorAll('.dropdown').forEach(function(item) {
+                            item.classList.remove('active');
+                        });
+                        
+                        // Закрываем/открываем текущее
+                        dropdown.classList.toggle('active', !wasActive);
+                        
+                        // Обновляем стрелку у всех пунктов
+                        document.querySelectorAll('.dropdown-toggle').forEach(function(item) {
+                            const arrow = item === toggle && !wasActive ? '▲' : '▼';
+                            item.innerHTML = item.innerHTML.replace(/[▼▲]/, arrow);
+                        });
                     }
                 });
             });

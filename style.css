@@ -64,9 +64,11 @@
     background-color: #000;
     min-width: 200px;
     display: none;
-    border-radius: 0 0 4px 4px;
+    border-radius: 0 0 15px 15px;
     overflow: hidden;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-color: #fff;
+    border-width: 5px;
 }
 
 .dropdown li {
@@ -162,6 +164,31 @@
     @keyframes fadeIn {
         from { opacity: 0; transform: translateY(-10px); }
         to { opacity: 1; transform: translateY(0); }
+    }
+    .dropdown-toggle {
+        position: relative;
+        padding-right: 20px !important;
+    }
+    .dropdown-toggle::after {
+        content: '▼';
+        position: absolute;
+        right: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 0.8em;
+        transition: all 0.3s;
+    }
+    .dropdown-toggle.active::after {
+        content: '▲';
+    }
+    /* Плавное открытие/закрытие */
+    .dropdown {
+        transition: all 0.3s ease;
+        max-height: 0;
+        overflow: hidden;
+    }
+    .dropdown.active {
+        max-height: 500px; /* Достаточно большое значение */
     }
 }body{
     background-color: #000;
