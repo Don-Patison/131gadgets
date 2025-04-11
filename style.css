@@ -241,5 +241,16 @@
 
 /* Адаптация для мобильных */
 @media (max-width: 768px) {
+    .content-block {
+        flex-direction: column;
+        gap: 0px;
+    }
     
+    .content-block.reverse {
+        flex-direction: column; /* На мобильных порядок как у всех */
+    }
+    
+    .text-content, .image-content {
+        width: 100%;
+    }
 }
