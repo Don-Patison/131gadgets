@@ -64,7 +64,7 @@
     background-color: #000;
     min-width: 200px;
     display: none;
-    border-radius: 0 0 15px 15px;
+    border-radius: 15px 15px 15px 15px;
     overflow: hidden;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     border-color: #fff;
@@ -192,4 +192,65 @@
     }
 }body{
     background-color: #000;
+}
+/*БЛОК*/
+.content-block {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Измененный порядок для обратного расположения */
+.content-block.reverse {
+    flex-direction: row-reverse; /* Главное изменение! */
+}
+
+/* Текстовая часть */
+.text-content {
+    flex: 1;
+}
+
+.text-content h2 {
+    font-size: 32px;
+    color: #0859da;
+    margin-bottom: 15px;
+}
+
+.text-content p {
+    font-size: 18px;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+/* Изображение */
+.image-content {
+    flex: 1;
+    text-align: center;
+}
+
+.image-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .content-block {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .content-block.reverse {
+        flex-direction: column; /* На мобильных порядок как у всех */
+    }
+    
+    .text-content, .image-content {
+        width: 100%;
+    }
 }
