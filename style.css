@@ -13,11 +13,11 @@
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
-    position: fixed;  /* ← Главное изменение */
-    top: 0;          /* ← */
-    left: 0;         /* ← */
-    width: 100%;     /* ← */
-    z-index: 1000;   /* ← */
+    position: fixed;  
+    top: 0;      
+    left: 0;     
+    width: 100%;   
+    z-index: 1000;  
 }
 
 .logo-container {
@@ -34,8 +34,6 @@
     font-size: 20px;
     font-weight: bold;
 }
-
-/* Стили для десктопного меню */
 .nav-links {
     display: flex;
     list-style: none;
@@ -90,7 +88,6 @@
     background-color: #333;
 }
 
-/* Бургер-меню (скрыто на десктопе) */
 .burger {
     display: none;
     cursor: pointer;
@@ -107,7 +104,6 @@
     transition: all 0.3s ease;
 }
 
-/* Адаптация под мобильные устройства */
 @media (max-width: 768px) {
     .nav-links {
         position: fixed;
@@ -190,7 +186,7 @@
         overflow: hidden;
     }
     .dropdown.active {
-        max-height: 500px; /* Достаточно большое значение */
+        max-height: 500px;
     }
 }body{
     background-color: #000;
@@ -207,9 +203,8 @@
     font-family: Arial, sans-serif;
 }
 
-/* Измененный порядок для обратного расположения */
 .content-block.reverse {
-    flex-direction: row-reverse; /* Главное изменение! */
+    flex-direction: row-reverse; 
 }
 
 /* Текстовая часть */
@@ -264,7 +259,7 @@
     }
     
     .content-block.reverse {
-        flex-direction: column; /* На мобильных порядок как у всех */
+        flex-direction: column;
     }
     
     .text-content, .image-content {
@@ -277,4 +272,35 @@
     border: 0;
     width: 85%;
     margin: 30px auto;
+}
+        
+.my-button:hover {
+    background-color: #0364ff;
+}
+
+.my-button:active {
+    background-color: #013ea0;
+}.my-button {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #0859da;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}.preorderti{
+    color: #0364ff;
+    text-align: center;
+    font-size: 28px;
+}.preorderde{
+    color: #fff;
+    font-size: 22px;
+    text-align: center;
 }
