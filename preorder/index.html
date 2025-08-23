@@ -24,7 +24,7 @@
             padding: 0 20px;
         }
 
-        /* Header - ОБНОВЛЕНО */
+        /* Header */
         header {
             background: linear-gradient(135deg, #0C5AD6 0%, #000000 100%);
             padding: 15px 0;
@@ -46,13 +46,13 @@
         }
 
         .logo-image {
-            width: 50px;
+            width: 150px;
             height: auto;
             display: block;
         }
 
         .logo-text {
-            display: none; /* Скрываем текстовый логотип */
+            display: none;
         }
 
         .nav-links {
@@ -139,104 +139,6 @@
             background: #0a4bbd;
         }
 
-        /* Products Grid */
-        .products {
-            padding: 80px 0;
-            background: #000;
-        }
-
-        .section-title {
-            text-align: center;
-            color: #fff;
-            font-size: 36px;
-            margin-bottom: 50px;
-            font-weight: bold;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .product-card {
-            background: #0a0a0a;
-            border-radius: 10px;
-            padding: 30px;
-            text-align: center;
-            border: 1px solid #1a1a1a;
-        }
-
-        .product-image {
-            width: 100%;
-            height: 200px;
-            background: #0C5AD6;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 60px;
-        }
-
-        .product-title {
-            color: #fff;
-            font-size: 24px;
-            margin-bottom: 15px;
-            font-weight: bold;
-        }
-
-        .product-description {
-            color: #ccc;
-            margin-bottom: 20px;
-            font-size: 16px;
-        }
-
-        .product-price {
-            color: #0C5AD6;
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        /* Features */
-        .features {
-            padding: 80px 0;
-            background: #000;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .feature-card {
-            background: #0a0a0a;
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            border: 1px solid #1a1a1a;
-        }
-
-        .feature-icon {
-            font-size: 40px;
-            color: #0C5AD6;
-            margin-bottom: 20px;
-        }
-
-        .feature-title {
-            color: #fff;
-            font-size: 20px;
-            margin-bottom: 15px;
-            font-weight: bold;
-        }
-
-        .feature-description {
-            color: #ccc;
-            font-size: 16px;
-        }
-
         /* Footer */
         footer {
             background: #000;
@@ -272,23 +174,18 @@
                 font-size: 32px;
             }
 
-            .products-grid,
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-
             .mobile-menu-btn {
                 display: block;
             }
 
             .logo-image {
-                width: 120px; /* Меньший размер лого на мобильных */
+                width: 120px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header - ОБНОВЛЕНО -->
+    <!-- Header -->
     <header>
         <div class="container nav-container">
             <div class="logo">
@@ -313,9 +210,9 @@
             <p>На этом сайте вы можете заказать наш продукт, скачать обновления на ваше устройство и найти инструкции по их скачиванию</p>
         </div>
     </section>
-          
+      
     <!-- Joke Section -->
-    <section id="home" class="joke">
+    <section class="joke">
         <div class="container">
             <h1>О нас</h1>
             <p>131 Gadgets — создаём инновационные гаджеты с нуля Мы не просто рассказываем о технологиях — мы их проектируем, паяем и запускаем в жизнь. С ноября 2024 года наша команда инженеров разрабатывает уникальные устройства</p>
@@ -323,7 +220,7 @@
     </section>
 
     <!-- Footer -->
-    <footer id="contact">
+    <footer>
         <div class="container">
             <div class="footer-content">
                 <h3>131GADGETS</h3>
