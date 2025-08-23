@@ -255,8 +255,33 @@
         </div>
     </section>
 
-    <footer><!-- Футер --></footer>
+   <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3>131GADGETS</h3>
+                <div class="social-links">
+                    <a href="https://t.me/gadgets131" target="_blank">Telegram</a>
+                    <a href="https://m.dzen.ru/131gadgets" target="_blank">Дзен</a>
+                    <a href="https://youtube.com/@131gadgets?si=p15MjkJmMOsogMxf" target="_blank">Youtube</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-    <script><!-- Скрипт --></script>
+    <script>
+        // Mobile menu
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('show');
+        });
+
+        // Закрытие меню при клике на ссылку (на мобильных)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    document.querySelector('.nav-links').classList.remove('show');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
