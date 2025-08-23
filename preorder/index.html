@@ -3,9 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <div class="logo">
-    <img src="logo.png" alt="131GADGETS Logo" class="logo-image">
-</div>
     <title>131GADGETS | Официальный сайт</title>
     <style>
         * {
@@ -27,15 +24,14 @@
             padding: 0 20px;
         }
 
-        /* Header */
+        /* Header - ОБНОВЛЕНО */
         header {
-            background: #000;
+            background: linear-gradient(135deg, #0C5AD6 0%, #000000 100%);
             padding: 15px 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid #1a1a1a;
         }
 
         .nav-container {
@@ -47,18 +43,16 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
         }
 
-        .logo img {
-            width: 40px;
-            height: 40px;
+        .logo-image {
+            width: 150px;
+            height: auto;
+            display: block;
         }
 
         .logo-text {
-            color: #fff;
-            font-size: 24px;
-            font-weight: bold;
+            display: none; /* Скрываем текстовый логотип */
         }
 
         .nav-links {
@@ -71,11 +65,20 @@
             color: #fff;
             text-decoration: none;
             font-size: 16px;
-            transition: color 0.3s ease;
+            transition: opacity 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: #0C5AD6;
+            opacity: 0.8;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
         }
 
         /* Hero Section */
@@ -99,8 +102,7 @@
             font-weight: bold;
         }
 
-      
-      /* Joke Section */
+        /* Joke Section */
         .joke {
             padding: 100px 0 100px;
             text-align: center;
@@ -120,6 +122,7 @@
             margin-bottom: 30px;
             font-weight: bold;
         }
+
         .cta-button {
             display: inline-block;
             background: #0C5AD6;
@@ -276,20 +279,20 @@
 
             .mobile-menu-btn {
                 display: block;
-                background: none;
-                border: none;
-                color: #fff;
-                font-size: 24px;
-                cursor: pointer;
+            }
+
+            .logo-image {
+                width: 120px; /* Меньший размер лого на мобильных */
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header - ОБНОВЛЕНО -->
     <header>
         <div class="container nav-container">
             <div class="logo">
+                <img src="logo.png" alt="131GADGETS Logo" class="logo-image">
                 <div class="logo-text">131GADGETS</div>
             </div>
             <nav>
@@ -297,7 +300,8 @@
                     <li><a href="#home">Главная</a></li>
                     <li><a href="#products">Наши устройства</a></li>
                     <li><a href="#features">О нас</a></li>
-                    <li><a 
+                </ul>
+                <button class="mobile-menu-btn">☰</button>
             </nav>
         </div>
     </header>
@@ -310,17 +314,13 @@
         </div>
     </section>
           
- <!-- Joke Section -->
+    <!-- Joke Section -->
     <section id="home" class="joke">
         <div class="container">
             <h1>О нас</h1>
             <p>131 Gadgets — создаём инновационные гаджеты с нуля Мы не просто рассказываем о технологиях — мы их проектируем, паяем и запускаем в жизнь. С ноября 2024 года наша команда инженеров разрабатывает уникальные устройства</p>
         </div>
     </section>
-
-  
-
-  
 
     <!-- Footer -->
     <footer id="contact">
