@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>131GADGETS | Главная</title>
+    <title>131GADGETS | Наши устройства</title>
     <style>
         * {
             margin: 0;
@@ -24,7 +24,6 @@
             padding: 0 20px;
         }
 
-        /* Header */
         header {
             background: linear-gradient(135deg, #0C5AD6 0%, #000000 100%);
             padding: 15px 0;
@@ -80,7 +79,6 @@
             border-bottom: 2px solid #fff;
         }
 
-        /* АНИМАЦИЯ БУРГЕР-МЕНЮ */
         .burger-menu {
             display: none;
             flex-direction: column;
@@ -99,7 +97,6 @@
             transition: all 0.3s ease;
         }
 
-        /* Анимация бургера при открытии */
         .burger-menu.active .burger-line:nth-child(1) {
             transform: rotate(45deg) translate(6px, 6px);
         }
@@ -112,7 +109,6 @@
             transform: rotate(-45deg) translate(6px, -6px);
         }
 
-        /* Hero Section */
         .hero {
             padding: 175px 0 100px;
             text-align: center;
@@ -133,25 +129,41 @@
             font-weight: bold;
         }
 
-        /* Joke Section */
-        .joke {
-            padding: 100px 0 100px;
-            text-align: center;
+        .products {
+            padding: 100px 0;
             background: #000;
+            text-align: center;
         }
 
-        .joke h1 {
-            font-size: 56px;
+        .products h2 {
+            font-size: 36px;
+            margin-bottom: 50px;
             color: #fff;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .product-card {
+            background: #0a0a0a;
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #1a1a1a;
+        }
+
+        .product-card h3 {
+            color: #fff;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .product-card p {
+            color: #ccc;
             margin-bottom: 20px;
-            font-weight: bold;
-        }
-
-        .joke p {
-            font-size: 20px;
-            color: #fff;
-            margin-bottom: 30px;
-            font-weight: bold;
         }
 
         .cta-button {
@@ -170,29 +182,6 @@
             background: #0a4bbd;
         }
 
-        /* Novinki Section */
-        .novinki {
-            padding: 100px 0 100px;
-            background: #fff;
-        }
-
-        .novinki h1 {
-            font-size: 56px;
-            color: #000;
-            margin-bottom: 20px;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        .novinki p {
-            font-size: 20px;
-            color: #000;
-            text-align: left;
-            margin-bottom: 30px;
-            font-weight: bold;
-        }
-
-        /* Footer */
         footer {
             background: linear-gradient(135deg, #0C5AD6 0%, #000000 100%);
             padding: 20px 0;
@@ -216,7 +205,6 @@
             font-size: 16px;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -253,11 +241,14 @@
             .logo-text {
                 font-size: 20px;
             }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="container nav-container">
             <div class="logo">
@@ -266,12 +257,11 @@
             </div>
             <nav>
                 <ul class="nav-links">
-                    <li><a href="index.html" class="active">Главная</a></li>
-                    <li><a href="devices.html">Наши устройства</a></li>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="devices.html" class="active">Наши устройства</a></li>
                     <li><a href="accessories.html">Аксессуары</a></li>
                     <li><a href="about.html">О нас</a></li>
                 </ul>
-                <!-- БУРГЕР-МЕНЮ -->
                 <div class="burger-menu">
                     <span class="burger-line"></span>
                     <span class="burger-line"></span>
@@ -281,26 +271,33 @@
         </div>
     </header>
 
-    <!-- Остальной контент без изменений -->
-    <section id="home" class="hero">
+    <section class="hero">
         <div class="container">
-            <h1>Добро пожаловать</h1>
-            <p>На этом сайте вы можете заказать наш продукт, скачать обновления на ваше устройство и найти инструкции по их скачиванию</p>
+            <h1>Наши устройства</h1>
+            <p>Инновационные гаджеты, созданные для вашего комфорта</p>
         </div>
     </section>
-      
-    <section class="joke">
+
+    <section class="products">
         <div class="container">
-            <h1>О нас</h1>
-            <p>131 Gadgets — создаём инновационные гаджеты с нуля Мы не просто рассказываем о технологиях — мы их проектируем, паяем и запускаем в жизнь. С ноября 2024 года наша команда инженеров разрабатывает уникальные устройства</p>
-        </div>
-    </section>
-  
-    <section class="novinki">
-        <div class="container">
-            <h1>Новости</h1>
-            <p>• Сайт прошел модернизацию и стал более привлекательным. Приятного пользования!  -  23 августа 2025 года</p>
-            <p>• Самые актуальные новости у нас в Telegram канале!  -  23 августа 2025 года</p>
+            <h2>Каталог устройств</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <h3>PLAY131</h3>
+                    <p>Мощное игровое устройство с передовыми технологиями</p>
+                    <a href="#" class="cta-button">Подробнее</a>
+                </div>
+                <div class="product-card">
+                    <h3>AUDIO131</h3>
+                    <p>Высококачественные беспроводные наушники</p>
+                    <a href="#" class="cta-button">Подробнее</a>
+                </div>
+                <div class="product-card">
+                    <h3>TIME131</h3>
+                    <p>Умные часы с мониторингом здоровья</p>
+                    <a href="#" class="cta-button">Подробнее</a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -318,7 +315,6 @@
     </footer>
 
     <script>
-        // Анимация бургер-меню
         const burgerMenu = document.querySelector('.burger-menu');
         const navLinks = document.querySelector('.nav-links');
 
@@ -327,25 +323,11 @@
             navLinks.classList.toggle('show');
         });
 
-        // Закрытие меню при клике на ссылку
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', function() {
                 if (window.innerWidth <= 768) {
                     burgerMenu.classList.remove('active');
                     navLinks.classList.remove('show');
-                }
-            });
-        });
-
-        // Выделение активного пункта меню
-        document.addEventListener('DOMContentLoaded', function() {
-            const currentPage = window.location.pathname.split('/').pop();
-            const menuLinks = document.querySelectorAll('.nav-links a');
-            
-            menuLinks.forEach(link => {
-                const linkPage = link.getAttribute('href');
-                if (linkPage === currentPage) {
-                    link.classList.add('active');
                 }
             });
         });
