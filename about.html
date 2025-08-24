@@ -24,7 +24,6 @@
             padding: 0 20px;
         }
 
-        /* Header */
         header {
             background: linear-gradient(135deg, #0C5AD6 0%, #000000 100%);
             padding: 15px 0;
@@ -80,16 +79,36 @@
             border-bottom: 2px solid #fff;
         }
 
-        .mobile-menu-btn {
+        .burger-menu {
             display: none;
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 24px;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
             cursor: pointer;
+            z-index: 1001;
         }
 
-        /* Hero Section */
+        .burger-line {
+            width: 100%;
+            height: 3px;
+            background: #fff;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .burger-menu.active .burger-line:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .burger-menu.active .burger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .burger-menu.active .burger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
         .hero {
             padding: 175px 0 100px;
             text-align: center;
@@ -110,66 +129,67 @@
             font-weight: bold;
         }
 
-        /* Joke Section */
-        .joke {
-            padding: 100px 0 100px;
-            text-align: center;
+        .about {
+            padding: 100px 0;
             background: #000;
         }
 
-        .joke h1 {
-            font-size: 56px;
-            color: #fff;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-
-        .joke p {
-            font-size: 20px;
-            color: #fff;
-            margin-bottom: 30px;
-            font-weight: bold;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: #0C5AD6;
-            color: #fff;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 16px;
-            font-weight: bold;
-            transition: background 0.3s ease;
-        }
-
-        .cta-button:hover {
-            background: #0a4bbd;
-        }
-
-        /* Novinki Section */
-        .novinki {
-            padding: 100px 0 100px;
-            background: #fff;
-        }
-
-        .novinki h1 {
-            font-size: 56px;
-            color: #000;
-            margin-bottom: 20px;
+        .about h2 {
+            font-size: 36px;
             text-align: center;
-            font-weight: bold;
+            margin-bottom: 50px;
+            color: #fff;
         }
 
-        .novinki p {
-            font-size: 20px;
-            color: #000;
-            text-align: left;
-            margin-bottom: 30px;
-            font-weight: bold;
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
         }
 
-        /* Footer */
+        .about-content p {
+            font-size: 18px;
+            color: #ccc;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .team {
+            padding: 100px 0;
+            background: #0a0a0a;
+            text-align: center;
+        }
+
+        .team h2 {
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #fff;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .team-member {
+            background: #1a1a1a;
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #0C5AD6;
+        }
+
+        .team-member h3 {
+            color: #fff;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .team-member p {
+            color: #ccc;
+        }
+
         footer {
             background: linear-gradient(135deg, #0C5AD6 0%, #000000 100%);
             padding: 20px 0;
@@ -193,7 +213,6 @@
             font-size: 16px;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -204,18 +223,23 @@
                 right: 0;
                 background: linear-gradient(135deg, #0C5AD6 0%, #000000 100%);
                 padding: 20px;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s ease;
             }
 
             .nav-links.show {
+                display: flex;
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .burger-menu {
                 display: flex;
             }
 
             .hero h1 {
                 font-size: 32px;
-            }
-
-            .mobile-menu-btn {
-                display: block;
             }
 
             .logo-image {
@@ -224,6 +248,10 @@
             
             .logo-text {
                 font-size: 20px;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -242,7 +270,11 @@
                     <li><a href="accessories.html">Аксессуары</a></li>
                     <li><a href="about.html" class="active">О нас</a></li>
                 </ul>
-                <button class="mobile-menu-btn">☰</button>
+                <div class="burger-menu">
+                    <span class="burger-line"></span>
+                    <span class="burger-line"></span>
+                    <span class="burger-line"></span>
+                </div>
             </nav>
         </div>
     </header>
@@ -250,7 +282,38 @@
     <section class="hero">
         <div class="container">
             <h1>О нас</h1>
-            <p>Подробная информация о компании</p>
+            <p>Узнайте больше о нашей компании и команде</p>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="container">
+            <h2>Наша история</h2>
+            <div class="about-content">
+                <p>131 Gadgets — создаём инновационные гаджеты с нуля. Мы не просто рассказываем о технологиях — мы их проектируем, паяем и запускаем в жизнь.</p>
+                <p>С ноября 2024 года наша команда инженеров разрабатывает уникальные устройства, которые делают жизнь наших клиентов удобнее и технологичнее.</p>
+                <p>Мы верим в то, что технологии должны быть доступными и качественными для каждого.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="team">
+        <div class="container">
+            <h2>Наша команда</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <h3>Основатели</h3>
+                    <p>Арсений и команда инженеров</p>
+                </div>
+                <div class="team-member">
+                    <h3>Разработчики</h3>
+                    <p>Профессиональные инженеры и дизайнеры</p>
+                </div>
+                <div class="team-member">
+                    <h3>Поддержка</h3>
+                    <p>Круглосуточная техническая поддержка</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -268,16 +331,19 @@
     </footer>
 
     <script>
-        // Mobile menu
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('show');
+        const burgerMenu = document.querySelector('.burger-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        burgerMenu.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navLinks.classList.toggle('show');
         });
 
-        // Закрытие меню при клике на ссылку (на мобильных)
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', function() {
                 if (window.innerWidth <= 768) {
-                    document.querySelector('.nav-links').classList.remove('show');
+                    burgerMenu.classList.remove('active');
+                    navLinks.classList.remove('show');
                 }
             });
         });
