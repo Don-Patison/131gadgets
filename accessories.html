@@ -18,24 +18,6 @@
             line-height: 1.6;
             opacity: 0;
             animation: fadeIn 0.8s ease forwards;
-            position: relative;
-            min-height: 100vh;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('logo.png');
-            background-size: 300px;
-            background-position: center;
-            background-repeat: no-repeat;
-            opacity: 0.1;
-            z-index: -1;
-            pointer-events: none;
         }
 
         @keyframes fadeIn {
@@ -363,11 +345,6 @@
                 font-size: 18px;
             }
 
-            body::before {
-                background-size: 200px;
-                opacity: 0.05;
-            }
-
             .page-transition::before {
                 background-size: 60px;
                 width: 120px;
@@ -410,7 +387,7 @@
 
     <section class="accessories">
         <div class="container">
-            <h2>Каталог аксессуаров</h2>
+            <h2>Каталог аксессуары</h2>
             <div class="accessory-grid">
                 <div class="accessory-card">
                     <h3>Чехлы</h3>
