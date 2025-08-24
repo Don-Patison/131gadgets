@@ -80,13 +80,36 @@
             border-bottom: 2px solid #fff;
         }
 
-        .mobile-menu-btn {
+        /* АНИМАЦИЯ БУРГЕР-МЕНЮ */
+        .burger-menu {
             display: none;
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 24px;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
             cursor: pointer;
+            z-index: 1001;
+        }
+
+        .burger-line {
+            width: 100%;
+            height: 3px;
+            background: #fff;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* Анимация бургера при открытии */
+        .burger-menu.active .burger-line:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .burger-menu.active .burger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .burger-menu.active .burger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
         }
 
         /* Hero Section */
@@ -204,18 +227,23 @@
                 right: 0;
                 background: linear-gradient(135deg, #0C5AD6 0%, #000000 100%);
                 padding: 20px;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s ease;
             }
 
             .nav-links.show {
+                display: flex;
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .burger-menu {
                 display: flex;
             }
 
             .hero h1 {
                 font-size: 32px;
-            }
-
-            .mobile-menu-btn {
-                display: block;
             }
 
             .logo-image {
@@ -243,12 +271,17 @@
                     <li><a href="accessories.html">Аксессуары</a></li>
                     <li><a href="about.html">О нас</a></li>
                 </ul>
-                <button class="mobile-menu-btn">☰</button>
+                <!-- БУРГЕР-МЕНЮ -->
+                <div class="burger-menu">
+                    <span class="burger-line"></span>
+                    <span class="burger-line"></span>
+                    <span class="burger-line"></span>
+                </div>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Остальной контент без изменений -->
     <section id="home" class="hero">
         <div class="container">
             <h1>Добро пожаловать</h1>
@@ -256,7 +289,6 @@
         </div>
     </section>
       
-    <!-- Joke Section -->
     <section class="joke">
         <div class="container">
             <h1>О нас</h1>
@@ -264,7 +296,6 @@
         </div>
     </section>
   
-    <!-- Novinki Section -->
     <section class="novinki">
         <div class="container">
             <h1>Новости</h1>
@@ -273,7 +304,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -288,16 +318,34 @@
     </footer>
 
     <script>
-        // Mobile menu
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('show');
+        // Анимация бургер-меню
+        const burgerMenu = document.querySelector('.burger-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        burgerMenu.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navLinks.classList.toggle('show');
         });
 
-        // Закрытие меню при клике на ссылку (на мобильных)
+        // Закрытие меню при клике на ссылку
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', function() {
                 if (window.innerWidth <= 768) {
-                    document.querySelector('.nav-links').classList.remove('show');
+                    burgerMenu.classList.remove('active');
+                    navLinks.classList.remove('show');
+                }
+            });
+        });
+
+        // Выделение активного пункта меню
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPage = window.location.pathname.split('/').pop();
+            const menuLinks = document.querySelectorAll('.nav-links a');
+            
+            menuLinks.forEach(link => {
+                const linkPage = link.getAttribute('href');
+                if (linkPage === currentPage) {
+                    link.classList.add('active');
                 }
             });
         });
