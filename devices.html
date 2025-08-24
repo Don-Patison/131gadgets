@@ -201,7 +201,13 @@
             border-radius: 10px;
             border: 1px solid #1a1a1a;
             transition: transform 0.3s ease;
+            opacity: 0;
+            animation: slideUp 1s ease forwards;
         }
+
+        .product-card:nth-child(1) { animation-delay: 0.8s; }
+        .product-card:nth-child(2) { animation-delay: 1.0s; }
+        .product-card:nth-child(3) { animation-delay: 1.2s; }
 
         .product-card:hover {
             transform: translateY(-5px);
@@ -428,6 +434,7 @@
         document.querySelectorAll('.nav-links a, .social-links a').forEach(link => {
             link.addEventListener('click', function(e) {
                 if (this.getAttribute('href').startsWith('http')) return;
+                if (this.classList.contains('active')) return;
                 
                 e.preventDefault();
                 const href = this.getAttribute('href');
