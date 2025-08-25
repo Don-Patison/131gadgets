@@ -37,7 +37,6 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            transition: transform 0.3s ease;
         }
 
         .nav-container {
@@ -55,12 +54,6 @@
         .logo-image {
             width: 60px;
             height: auto;
-            display: block;
-            transition: transform 0.3s ease;
-        }
-
-        .logo-image:hover {
-            transform: scale(1.1);
         }
 
         .logo-text {
@@ -80,8 +73,6 @@
             text-decoration: none;
             font-size: 16px;
             position: relative;
-            padding: 10px 0;
-            transition: all 0.3s ease;
         }
 
         .nav-links a::after {
@@ -92,100 +83,55 @@
             width: 0;
             height: 2px;
             background: #fff;
-            transition: width 0.3s ease;
+            transition: width 0.3s;
         }
 
         .nav-links a:hover::after {
             width: 100%;
         }
 
-        .nav-links a:hover {
-            transform: translateY(-2px);
-        }
-
         .nav-links a.active {
             font-weight: bold;
-        }
-
-        .nav-links a.active::after {
-            width: 100%;
         }
 
         .burger-menu {
             display: none;
             flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 21px;
-            cursor: pointer;
-            z-index: 1001;
+            gap: 5px;
         }
 
         .burger-line {
-            width: 100%;
+            width: 30px;
             height: 3px;
             background: #fff;
-            border-radius: 2px;
-            transition: all 0.3s ease;
-        }
-
-        .burger-menu.active .burger-line:nth-child(1) {
-            transform: rotate(45deg) translate(6px, 6px);
-        }
-
-        .burger-menu.active .burger-line:nth-child(2) {
-            opacity: 0;
-        }
-
-        .burger-menu.active .burger-line:nth-child(3) {
-            transform: rotate(-45deg) translate(6px, -6px);
         }
 
         .hero {
             padding: 175px 0 100px;
             text-align: center;
             background: #fff;
-            opacity: 0;
-            animation: slideUp 1s ease 0.3s forwards;
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .hero h1 {
             font-size: 56px;
             color: #000;
             margin-bottom: 20px;
-            font-weight: bold;
         }
 
         .hero p {
             font-size: 20px;
             color: #000;
-            margin-bottom: 30px;
-            font-weight: bold;
         }
 
         .products {
             padding: 100px 0;
             background: #000;
             text-align: center;
-            opacity: 0;
-            animation: slideUp 1s ease 0.6s forwards;
         }
 
         .products h2 {
             font-size: 36px;
             margin-bottom: 50px;
-            color: #fff;
         }
 
         .product-grid {
@@ -200,17 +146,6 @@
             padding: 30px;
             border-radius: 10px;
             border: 1px solid #1a1a1a;
-            transition: transform 0.3s ease;
-            opacity: 0;
-            animation: slideUp 1s ease forwards;
-        }
-
-        .product-card:nth-child(1) { animation-delay: 0.8s; }
-        .product-card:nth-child(2) { animation-delay: 1.0s; }
-        .product-card:nth-child(3) { animation-delay: 1.2s; }
-
-        .product-card:hover {
-            transform: translateY(-5px);
         }
 
         .product-card h3 {
@@ -233,24 +168,12 @@
             border-radius: 5px;
             font-size: 16px;
             font-weight: bold;
-            transition: all 0.3s ease;
-            transform: translateY(0);
-        }
-
-        .cta-button:hover {
-            background: #0a4bbd;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(12, 90, 214, 0.3);
         }
 
         footer {
             background: linear-gradient(135deg, #0C5AD6 0%, #000000 100%);
             padding: 20px 0;
             text-align: center;
-        }
-
-        .footer-content {
-            color: #fff;
         }
 
         .social-links {
@@ -263,44 +186,7 @@
         .social-links a {
             color: #fff;
             text-decoration: none;
-            font-size: 16px;
-            transition: all 0.3s ease;
             padding: 10px 15px;
-            border-radius: 5px;
-        }
-
-        .social-links a:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-2px);
-        }
-
-        .page-transition {
-            position: fixed;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #0C5AD6 0%, #000000 100%);
-            z-index: 9999;
-            transition: left 0.6s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .page-transition::before {
-            content: '';
-            background-image: url('logo.png');
-            background-size: 80px;
-            background-repeat: no-repeat;
-            background-position: center;
-            width: 150px;
-            height: 150px;
-            opacity: 0.8;
-        }
-
-        .page-transition.active {
-            left: 0;
         }
 
         @media (max-width: 768px) {
@@ -313,49 +199,15 @@
                 right: 0;
                 background: linear-gradient(135deg, #0C5AD6 0%, #000000 100%);
                 padding: 20px;
-                transform: translateY(-100%);
-                opacity: 0;
-                transition: all 0.4s ease;
-            }
-
-            .nav-links.show {
-                display: flex;
-                transform: translateY(0);
-                opacity: 1;
             }
 
             .burger-menu {
                 display: flex;
             }
-
-            .hero h1 {
-                font-size: 32px;
-            }
-
-            .logo-image {
-                width: 50px;
-            }
-            
-            .logo-text {
-                font-size: 20px;
-            }
-
-            .nav-links a {
-                padding: 15px 0;
-                font-size: 18px;
-            }
-
-            .page-transition::before {
-                background-size: 60px;
-                width: 120px;
-                height: 120px;
-            }
         }
     </style>
 </head>
 <body>
-    <div class="page-transition"></div>
-
     <header>
         <div class="container nav-container">
             <div class="logo">
@@ -392,7 +244,7 @@
                 <div class="product-card">
                     <h3>PLAY131</h3>
                     <p>Уникальная игровая консоль с играми нашей разработки</p>
-                    <a href="#" class="cta-button">Перейти</a>
+                    <a href="play131.html" class="cta-button">Подробнее</a>
                 </div>
             </div>
         </div>
@@ -403,9 +255,9 @@
             <div class="footer-content">
                 <h3>131GADGETS</h3>
                 <div class="social-links">
-                    <a href="https://t.me/gadgets131" target="_blank">Telegram</a>
-                    <a href="https://m.dzen.ru/131gadgets" target="_blank">Дзен</a>
-                    <a href="https://youtube.com/@131gadgets?si=p15MjkJmMOsogMxf" target="_blank">Youtube</a>
+                    <a href="https://t.me/gadgets131">Telegram</a>
+                    <a href="https://m.dzen.ru/131gadgets">Дзен</a>
+                    <a href="https://youtube.com/@131gadgets">YouTube</a>
                 </div>
             </div>
         </div>
@@ -414,38 +266,9 @@
     <script>
         const burgerMenu = document.querySelector('.burger-menu');
         const navLinks = document.querySelector('.nav-links');
-        const pageTransition = document.querySelector('.page-transition');
 
         burgerMenu.addEventListener('click', function() {
-            this.classList.toggle('active');
             navLinks.classList.toggle('show');
-        });
-
-        document.querySelectorAll('.nav-links a, .social-links a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                if (this.getAttribute('href').startsWith('http')) return;
-                if (this.classList.contains('active')) return;
-                
-                e.preventDefault();
-                const href = this.getAttribute('href');
-                
-                pageTransition.classList.add('active');
-                
-                setTimeout(() => {
-                    window.location.href = href;
-                }, 600);
-                
-                if (window.innerWidth <= 768) {
-                    burgerMenu.classList.remove('active');
-                    navLinks.classList.remove('show');
-                }
-            });
-        });
-
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(() => {
-                pageTransition.classList.remove('active');
-            }, 100);
         });
     </script>
 </body>
