@@ -231,13 +231,15 @@
             background: #fff;
             text-align: center;
             opacity: 0;
-            animation: slideUp 1s ease 0.9s forwards;
+            animation: slideUp 1s ease 1.2s forwards;
         }
 
         .about-preview h2 {
             font-size: 36px;
             margin-bottom: 30px;
             color: #000;
+            opacity: 0;
+            animation: slideUp 1s ease 1.4s forwards;
         }
 
         .about-preview p {
@@ -249,6 +251,13 @@
             margin-left: auto;
             margin-right: auto;
             line-height: 1.6;
+            opacity: 0;
+            animation: slideUp 1s ease 1.6s forwards;
+        }
+
+        .about-preview .cta-button {
+            opacity: 0;
+            animation: slideUp 1s ease 1.8s forwards;
         }
 
         .cta-button {
@@ -423,12 +432,12 @@
             <div class="links-grid">
                 <div class="link-card">
                     <h3>Наши устройства</h3>
-                    <p>Инновационные гаджеты, созданные для вашего комфорта</p>
+                    <p>Гаджеты, созданные для приятного пользования</p>
                     <a href="devices.html" class="cta-button">Смотреть устройства</a>
                 </div>
                 <div class="link-card">
                     <h3>Аксессуары</h3>
-                    <p>Дополнительные устройства для вашего комфорта</p>
+                    <p>Дополнения для вашего комфорта</p>
                     <a href="accessories.html" class="cta-button">Смотреть аксессуары</a>
                 </div>
             </div>
@@ -449,9 +458,9 @@
             <div class="footer-content">
                 <h3>131GADGETS</h3>
                 <div class="social-links">
-                    <a href="https://t.me/gadgets131" target="_blank">Telegram</a>
-                    <a href="https://m.dzen.ru/131gadgets" target="_blank">Дзен</a>
-                    <a href="https://youtube.com/@131gadgets?si=p15MjkJmMOsogMxf" target="_blank">Youtube</a>
+                    <a href="极速飞艇开奖结果查询官网【14055.CC】" target="_blank">Telegram</a>
+                    <a href="极速飞艇开奖结果查询官网【14055.CC】" target="_blank">Дзен</a>
+                    <a href="极速飞艇开奖结果查询官网【14055.CC】" target="_blank">Youtube</a>
                 </div>
             </div>
         </div>
@@ -467,7 +476,7 @@
             navLinks.classList.toggle('show');
         });
 
-        document.querySelectorAll('.nav-links a, .social-links a, .links-section a').forEach(link => {
+        document.querySelectorAll('.nav-links a, .social-links a, .links-section a, .about-preview a').forEach(link => {
             link.addEventListener('click', function(e) {
                 if (this.getAttribute('href').startsWith('http')) return;
                 if (this.classList.contains('active')) return;
