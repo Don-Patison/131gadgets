@@ -174,39 +174,13 @@
             font-weight: bold;
         }
 
-        .about {
-            padding: 100px 0;
-            background: #000;
-            opacity: 0;
-            animation: slideUp 1s ease 0.6s forwards;
-        }
-
-        .about h2 {
-            font-size: 36px;
-            text-align: center;
-            margin-bottom: 50px;
-            color: #fff;
-        }
-
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .about-content p {
-            font-size: 18px;
-            color: #ccc;
-            margin-bottom: 20px;
-            line-height: 1.8;
-        }
-
+        /* Команда - черный фон */
         .team {
             padding: 100px 0;
-            background: #0a0a0a;
+            background: #000;
             text-align: center;
             opacity: 0;
-            animation: slideUp 1s ease 0.9s forwards;
+            animation: slideUp 1s ease 0.6s forwards;
         }
 
         .team h2 {
@@ -231,9 +205,8 @@
             animation: slideUp 1s ease forwards;
         }
 
-        .team-member:nth-child(1) { animation-delay: 1.0s; }
-        .team-member:nth-child(2) { animation-delay: 1.2s; }
-        .team-member:nth-child(3) { animation-delay: 1.4s; }
+        .team-member:nth-child(1) { animation-delay: 0.8s; }
+        .team-member:nth-child(2) { animation-delay: 1.0s; }
 
         .team-member h3 {
             color: #fff;
@@ -243,6 +216,36 @@
 
         .team-member p {
             color: #ccc;
+        }
+
+        /* История - белый фон */
+        .about {
+            padding: 100px 0;
+            background: #fff;
+            opacity: 0;
+            animation: slideUp 1s ease 0.9s forwards;
+        }
+
+        .about h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 20px;
+            color: #000;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            font-weight: bold; /* ЖИРНЫЙ ТЕКСТ КАК В HERO */
         }
 
         footer {
@@ -391,17 +394,7 @@
         </div>
     </section>
 
-    <section class="about">
-        <div class="container">
-            <h2>Наша история</h2>
-            <div class="about-content">
-                <p>131 Gadgets — создаём инновационные гаджеты с нуля. Мы не просто рассказываем о технологиях — мы их проектируем, паяем и запускаем в жизнь.</p>
-                <p>С ноября 2024 года наша команда инженеров разрабатывает уникальные устройства, которые делают жизнь наших клиентов удобнее и технологичнее.</p>
-                <p>Мы верим в то, что технологии должны быть доступными и качественными для каждого.</p>
-            </div>
-        </div>
-    </section>
-
+    <!-- Сначала команда на черном фоне -->
     <section class="team">
         <div class="container">
             <h2>Наша команда</h2>
@@ -414,6 +407,18 @@
                     <h3>Хамитов Алан</h3>
                     <p>Со-основатель и инженер по 3D-моделированию</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Потом история на белом фоне -->
+    <section class="about">
+        <div class="container">
+            <h2>Наша история</h2>
+            <div class="about-content">
+                <p>131 Gadgets — создаём инновационные гаджеты с нуля. Мы не просто рассказываем о технологиях — мы их проектируем, паяем и запускаем в жизнь.</p>
+                <p>С ноября 2024 года наша команда инженеров разрабатывает уникальные устройства, которые делают жизнь наших клиентов удобнее и технологичнее.</p>
+                <p>Мы верим в то, что технологии должны быть доступными и качественными для каждого.</p>
             </div>
         </div>
     </section>
