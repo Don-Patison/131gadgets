@@ -1,1 +1,492 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>131GADGETS | Универсальная подставка</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica', sans-serif;
+        }
 
+        body {
+            background: #000;
+            color: #fff;
+            line-height: 1.6;
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0C5AD6 0%, #000000 100%);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-image {
+            width: 60px;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-image:hover {
+            transform: scale(1.1);
+        }
+
+        .logo-text {
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            position: relative;
+            padding: 10px 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #fff;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            transform: translateY(-2px);
+        }
+
+        .nav-links a.active {
+            font-weight: bold;
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .back-button {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            margin-right: 15px;
+        }
+
+        .back-button:hover {
+            transform: translateX(-5px);
+        }
+
+        .burger-menu {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .burger-line {
+            width: 100%;
+            height: 3px;
+            background: #fff;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .burger-menu.active .burger-line:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .burger-menu.active .burger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .burger-menu.active .burger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        .hero {
+            padding: 150px 0 80px;
+            text-align: center;
+            background: #fff;
+            opacity: 0;
+            animation: slideUp 1s ease 0.3s forwards;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .product-image {
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+            margin: 0 auto 30px;
+            display: block;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            animation: slideUp 1s ease 0.5s forwards;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            color: #000;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #000;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        /* Секция заказа на черном фоне */
+        .order-section {
+            padding: 100px 0;
+            background: #000;
+            text-align: center;
+            opacity: 0;
+            animation: slideUp 1s ease 0.8s forwards;
+        }
+
+        .order-section h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #fff;
+            opacity: 0;
+            animation: slideUp 1s ease 1.0s forwards;
+        }
+
+        .price-tag {
+            font-size: 48px;
+            color: #0C5AD6;
+            font-weight: bold;
+            margin: 30px 0;
+            opacity: 0;
+            animation: slideUp 1s ease 1.2s forwards;
+        }
+
+        .order-section p {
+            font-size: 20px;
+            color: #fff;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            animation: slideUp 1s ease 1.2s forwards;
+        }
+
+        .order-button {
+            display: inline-block;
+            background: #0C5AD6;
+            color: #fff;
+            padding: 20px 40px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            transform: translateY(0);
+            opacity: 0;
+            animation: slideUp 1s ease 1.4s forwards;
+        }
+
+        .order-button:hover {
+            background: #0a4bbd;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(12, 90, 214, 0.4);
+        }
+
+        footer {
+            background: linear-gradient(135deg, #0C5AD6 0%, #000000 100%);
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            color: #fff;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .social-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        .social-links a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .page-transition {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0C5AD6 0%, #000000 100%);
+            z-index: 9999;
+            transition: left 0.6s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .page-transition::before {
+            content: '';
+            background-image: url('logo.png');
+            background-size: 80px;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 150px;
+            height: 150px;
+            opacity: 0.8;
+        }
+
+        .page-transition.active {
+            left: 0;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, #0C5AD6 0%, #000000 100%);
+                padding: 20px;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.4s ease;
+            }
+
+            .nav-links.show {
+                display: flex;
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .burger-menu {
+                display: flex;
+            }
+
+            .hero {
+                padding: 130px 0 60px;
+            }
+            
+            .product-image {
+                max-width: 280px;
+                margin-bottom: 20px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .logo-image {
+                width: 50px;
+            }
+            
+            .logo-text {
+                font-size: 20px;
+            }
+
+            .nav-links a {
+                padding: 15px 0;
+                font-size: 18px;
+            }
+
+            .price-tag {
+                font-size: 36px;
+            }
+
+            .page-transition::before {
+                background-size: 60px;
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-transition"></div>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="accessories.html" class="back-button">Назад</a>
+                <img src="logo.png" alt="131GADGETS Logo" class="logo-image">
+                <div class="logo-text">131 Gadgets</div>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="devices.html">Наши устройства</a></li>
+                    <li><a href="accessories.html" class="active">Аксессуары</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                </ul>
+                <div class="burger-menu">
+                    <span class="burger-line"></span>
+                    <span class="burger-line"></span>
+                    <span class="burger-line"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Первый сектор - Hero -->
+    <section class="hero">
+        <div class="container">
+            <img src="podstavka.png" alt="Универсальная подставка для телефонов и планшетов" class="product-image">
+            <h1>Универсальная подставка</h1>
+            <p>Идеальное решение для комфортного просмотра контента на ваших устройствах</p>
+        </div>
+    </section>
+
+    <!-- Секция заказа на черном фоне -->
+    <section class="order-section">
+        <div class="container">
+            <h2>Закажите универсальную подставку</h2>
+            <div class="price-tag">990 ₽</div>
+            <p>Прочная и стильная подставка, которая подходит для любых smartphones и планшетов</p>
+            <a href="#" class="order-button">Оформить заказ</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3>131GADGETS</h3>
+                <div class="social-links">
+                    <a href="https://t.me/gadgets131" target="_blank">Telegram</a>
+                    <a href="https://m.dzen.ru/131gadgets" target="_blank">Дзен</a>
+                    <a href="https://youtube.com/@131gadgets?si=p15MjkJmMOsogMxf" target="_blank">Youtube</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const burgerMenu = document.querySelector('.burger-menu');
+        const navLinks = document.querySelector('.nav-links');
+        const pageTransition = document.querySelector('.page-transition');
+        const backButton = document.querySelector('.back-button');
+
+        burgerMenu.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navLinks.classList.toggle('show');
+        });
+
+        // Обработчик для кнопки "Назад"
+        backButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            pageTransition.classList.add('active');
+            setTimeout(() => {
+                window.location.href = 'accessories.html';
+            }, 600);
+        });
+
+        document.querySelectorAll('.nav-links a, .social-links a, .order-button').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.getAttribute('href') && this.getAttribute('href').startsWith('http')) return;
+                if (this.classList.contains('active')) return;
+                
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                if (!href) return;
+                
+                pageTransition.classList.add('active');
+                
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 600);
+                
+                if (window.innerWidth <= 768) {
+                    burgerMenu.classList.remove('active');
+                    navLinks.classList.remove('show');
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                pageTransition.classList.remove('active');
+            }, 100);
+        });
+    </script>
+</body>
+</html>
