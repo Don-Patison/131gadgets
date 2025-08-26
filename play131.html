@@ -157,7 +157,7 @@
         }
 
         .hero {
-            padding: 175px 0 100px;
+            padding: 150px 0 80px;
             text-align: center;
             background: #fff;
             opacity: 0;
@@ -173,6 +173,18 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+
+        .product-image {
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+            margin: 0 auto 30px;
+            display: block;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            animation: slideUp 1s ease 0.5s forwards;
         }
 
         .hero h1 {
@@ -463,6 +475,15 @@
                 display: flex;
             }
 
+            .hero {
+                padding: 130px 0 60px;
+            }
+            
+            .product-image {
+                max-width: 280px;
+                margin-bottom: 20px;
+            }
+
             .hero h1 {
                 font-size: 32px;
             }
@@ -529,6 +550,7 @@
     <!-- Первый сектор - Hero -->
     <section class="hero">
         <div class="container">
+            <img src="ingame.png" alt="PLAY131 в действии" class="product-image">
             <h1>PLAY131</h1>
             <p>Уникальная игровая консоль с играми нашей разработки</p>
         </div>
