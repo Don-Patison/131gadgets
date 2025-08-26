@@ -258,6 +258,36 @@
             animation: slideUp 1s ease 1.4s forwards;
         }
 
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .spec-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .spec-item h4 {
+            color: #0C5AD6;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .spec-item p {
+            color: #000;
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0;
+        }
+
         .about-preview p {
             font-size: 20px;
             color: #000;
@@ -271,10 +301,10 @@
             animation: slideUp 1s ease 1.6s forwards;
         }
 
-        /* Секция заказа на градиентном фоне */
+        /* Секция заказа на черном фоне */
         .order-section {
             padding: 100px 0;
-            background: linear-gradient(135deg, #0C5AD6 0%, #000000 100%);
+            background: #000;
             text-align: center;
             opacity: 0;
             animation: slideUp 1s ease 1.8s forwards;
@@ -286,6 +316,15 @@
             color: #fff;
             opacity: 0;
             animation: slideUp 1s ease 2.0s forwards;
+        }
+
+        .price-tag {
+            font-size: 48px;
+            color: #0C5AD6;
+            font-weight: bold;
+            margin: 30px 0;
+            opacity: 0;
+            animation: slideUp 1s ease 2.2s forwards;
         }
 
         .order-section p {
@@ -320,8 +359,8 @@
 
         .order-button {
             display: inline-block;
-            background: #fff;
-            color: #0C5AD6;
+            background: #0C5AD6;
+            color: #fff;
             padding: 20px 40px;
             text-decoration: none;
             border-radius: 10px;
@@ -335,9 +374,8 @@
 
         .order-button:hover {
             background: #0a4bbd;
-            color: #fff;
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(12, 90, 214, 0.4);
         }
 
         footer {
@@ -446,6 +484,14 @@
                 grid-template-columns: 1fr;
             }
 
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .price-tag {
+                font-size: 36px;
+            }
+
             .page-transition::before {
                 background-size: 60px;
                 width: 120px;
@@ -460,7 +506,7 @@
     <header>
         <div class="container nav-container">
             <div class="logo">
-                <a href="devices.html" class="back-button">Назад</a>
+                <a href="devices.html" class="back-button">← Назад</a>
                 <img src="logo.png" alt="131GADGETS Logo" class="logo-image">
                 <div class="logo-text">131 Gadgets</div>
             </div>
@@ -495,18 +541,18 @@
             <div class="links-grid">
                 <div class="link-card">
                     <h3>Обзор</h3>
-                    <p>Полный видео-обзор консоли</p>
+                    <p>Полное видео-обзор консоли PLAY131 со всеми особенностями и возможностями</p>
                     <a href="#" class="cta-button">Смотреть обзор</a>
                 </div>
                 <div class="link-card">
                     <h3>Обновление OS131</h3>
-                    <p>Актуальная версия: V1.1</p>
+                    <p>Последняя версия прошивки с новыми функциями и улучшениями</p>
                     <a href="#" class="cta-button">Скачать обновление</a>
                 </div>
                 <div class="link-card">
-                    <h3>Инструкция</h3>
-                    <p>Руководство по обновлению ПО</p>
-                    <a href="#" class="cta-button">Скачать инструкцию</a>
+                    <h3>Инструкция по прошивке</h3>
+                    <p>Подробное руководство по установке и обновлению прошивки</p>
+                    <a href="#" class="cta-button">Открыть инструкцию</a>
                 </div>
             </div>
         </div>
@@ -515,17 +561,41 @@
     <!-- Секция "О продукте" на белом фоне -->
     <section class="about-preview">
         <div class="container">
-            <h2>О консоли PLAY131</h2>
-            <p>PLAY131 — это инновационная игровая консоль, разработанная с нуля нашей командой. Устройство сочетает в себе передовые технологии и уникальный дизайн.</p>
-            <p>Консоль оснащена мощным процессором, современной графикой и поддерживает все игры нашей собственной разработки. Идеально подходит как для casual-геймеров, так и для настоящих ценителей игр.</p>
-            <p>С PLAY131 вы получаете не просто устройство, а целую экосистему развлечений с регулярными обновлениями и новыми играми.</p>
+            <h2>Технические характеристики</h2>
+            
+            <div class="specs-grid">
+                <div class="spec-item">
+                    <h4>Микроконтроллер</h4>
+                    <p>Arduino Nano</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Процессор</h4>
+                    <p>ATmega328P</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Батарея</h4>
+                    <p>1200 мАч</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Разрешение экрана</h4>
+                    <p>128x64 пикселей</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Дисплей</h4>
+                    <p>OLED SSD1306</p>
+                </div>
+            </div>
+            
+            <p>PLAY131 — это инновационная игровая консоль, разработанная с нуля нашей командой. Устройство сочетает в себе передовые технологии и уникальный дизайн, предлагая непревзойденный игровой опыт в компактном форм-факторе.</p>
+            <p>Благодаря мощному процессору и качественному OLED-экрану, PLAY131 обеспечивает плавный геймплей и яркую графику. Автономность до 8 часов игры позволяет наслаждаться вашими любимыми играми где угодно и когда угодно.</p>
         </div>
     </section>
 
-    <!-- Секция заказа на градиентном фоне -->
+    <!-- Секция заказа на черном фоне -->
     <section class="order-section">
         <div class="container">
-            <h2>Закажите PLAY131</h2>
+            <h2>Закажите PLAY131 сегодня</h2>
+            <div class="price-tag">4 990 ₽</div>
             <p>Станьте одним из первых обладателей инновационной игровой консоли с эксклюзивными играми</p>
             <a href="#" class="order-button">Оформить заказ</a>
         </div>
